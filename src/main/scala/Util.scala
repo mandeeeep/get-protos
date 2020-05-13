@@ -45,7 +45,7 @@ object Util {
 
   def cleanCodeLine(src: String): Option[String] = {
     //first remove comments
-    val x = src.replaceAll(",", "")
+    val x = src.replaceAll(",", "").replaceAll("var", "").replaceAll("val", "")
     val y = removeComments(x).trim
     val z = removeDefaultValues(y).trim.replaceAll(",", "")
     if (z.isEmpty) {
@@ -87,6 +87,7 @@ object Util {
       case "String" => if (!isOptional) "string" else "google.protobuf.StringValue"
       case "List" => "repeated"
       case "Seq" => "repeated"
+      case "DateTime" => if (!isOptional) "string" else "google.protobuf.StringValue"
       case "Long" => if (!isOptional) "int64" else "google.protobuf.Int64Value"
       case "Int" => if (!isOptional) "int32" else "google.protobuf.Int32Value"
       case "BigDecimal" => if (!isOptional) "string" else "google.protobuf.StringValue"
