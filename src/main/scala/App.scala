@@ -14,7 +14,7 @@ object App extends App{
         val o = p._1.split(":")
         val readProtoLine = ("" + Util.typeDefiners(o.last.trim, appendProto) + " "
           + Util.toSnakeCase(o.head.trim)
-          + " = " + (p._2 + 1))
+          + " = " + (p._2 + 1)+";")
         println(readProtoLine)
         Field(Util.toSnakeCase(o.head.trim), Util.typeDefiners(o.last.trim, appendProto), "= " + (p._2 + 1) + ";")
       })
