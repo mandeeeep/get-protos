@@ -1,6 +1,8 @@
 
 import java.io.FileNotFoundException
 
+import proto.Util
+
 import scala.io.Source
 
 object GetProto {

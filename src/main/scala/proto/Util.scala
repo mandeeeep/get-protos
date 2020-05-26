@@ -1,3 +1,5 @@
+package proto
+
 import java.io.{BufferedWriter, File, FileWriter}
 
 import scala.annotation.tailrec
