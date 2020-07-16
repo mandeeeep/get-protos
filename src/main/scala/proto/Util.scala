@@ -47,7 +47,7 @@ object Util {
 
   def cleanCodeLine(src: String): Option[String] = {
     //first remove comments
-    val x = src.replaceAll(",", "").replaceAll("var", "").replaceAll("val", "")
+    val x = src.replaceAll(",", "").replaceAll("var ", "").replaceAll("val ", "")
     val y = removeComments(x).trim
     val z = removeDefaultValues(y).trim.replaceAll(",", "")
     if (z.isEmpty) {
