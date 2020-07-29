@@ -10,7 +10,7 @@ object ConvertEnums extends App {
       .zipWithIndex
 
     for (x <- lines) {
-      println(x._1.trim + " = "+ x._2 + ";")
+      println(x._1.trim + " = "+ (x._2.toInt +1) + ";")
     }
   }
 
