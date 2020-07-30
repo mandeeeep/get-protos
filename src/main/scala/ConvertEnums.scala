@@ -5,7 +5,7 @@ import scala.io.Source
 object ConvertEnums extends App {
 
   def convert() = {
-    val lines: Seq[(String, Int)] = (Source.fromFile("target.in").getLines().toSeq.map(x => x.split(",")).toSeq)
+    val lines: List[(String, Int)] = (Source.fromFile("target.in").getLines().toList.map(x => x.split(",")).toList)
       .flatten
       .zipWithIndex
 

@@ -7,8 +7,8 @@ import scala.io.Source
 object ConvertEnums extends App {
   def convert() = {
     val appendSuffix = true
-    val lines: Seq[String] = Source.fromFile("target.in").getLines()
-      .toSeq
+    val lines: List[String] = Source.fromFile("target.in").getLines()
+      .toList
     //First line is always the class name
     //We aren't over checking the lines, for e.g just took the 2nd item in the array without checking
     //if elements exist
