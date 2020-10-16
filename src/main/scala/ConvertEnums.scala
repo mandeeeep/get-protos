@@ -2,7 +2,7 @@ import GetProto.Field
 
 import scala.io.Source
 
-object ConvertEnums extends App {
+object ConvertEnums  {
 
   def convert() = {
     val lines: List[(String, Int)] = (Source.fromFile("target.in").getLines().toList.map(x => x.split(",")).toList)

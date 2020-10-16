@@ -9,7 +9,7 @@ import org.json4s.native.JsonMethods._
 //https://stackoverflow.com/questions/42856002/convert-jvalue-to-json-string
 //https://stackoverflow.com/questions/39127039/how-do-i-generate-pretty-json-with-json4s
 
-object Convert4s extends App {
+object Convert4s {
 
   val json = parse(""" { "data": { "lead_value": { "num": 1000 }, "foo": "bar" }, "parb":[{"account_value": { "num": 100 } }] } """)
   val path = "data/lead_value/num" // json path in string

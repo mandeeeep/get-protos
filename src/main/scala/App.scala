@@ -5,7 +5,7 @@ import proto.Util
 
 import scala.io.Source
 
-object App extends App{
+object App {
 
   def convert(): Seq[Field] = {
     val appendProto = true

@@ -1,8 +1,0 @@
-string _id = 1;
-google.protobuf.StringValue first_name = 2;
-google.protobuf.StringValue last_name = 3;
-int32 age = 4;
-google.protobuf.DoubleValue balance = 5;
-int64 timpstamp = 6;
-repeated string address = 7;
-repeated int64 phones = 8;

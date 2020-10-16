@@ -1,8 +1,0 @@
-_id: String,
-firstName: Option[String]
-lastName: Option[String]
-age: Int
-balance: Option[Double]
-timpstamp: Long
-address: Seq[String]
-phones: Seq[Option[Long]]
