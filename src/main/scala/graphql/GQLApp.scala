@@ -10,7 +10,7 @@ import scala.io.Source
 
 object GQLApp extends App {
 
-  def convert(): Seq[String] = {
+  def convert(): String = {
     val appendSuffix = true
     val lines: Seq[String] = Source.fromFile("target.in").getLines()
       .toSeq
@@ -19,20 +19,22 @@ object GQLApp extends App {
     //if elements exist
     val dd = lines.head.replaceAll("\\{", "").split(" ")
     val head: ClassInfo = GQLUtil.cleanProtoTypeNames(lines.head.replaceAll("\\{", "").split(" ")(1))
-    println(head.protoName, head.domainName, head.gqlName)
+    //println(head.protoName, head.domainName, head.gqlName)
     val body = lines.drop(1).dropRight(1)
     val typee: Seq[String] = body
       .map(x => GQLUtil.cleanCodeLine(x)).flatten
       .map(y => GQLUtil.typeDefiners(y)).flatten
 
-//    def AvPostType = ObjectType("AvPost",
-//      fields[BaseQuery, AvPostProto](
+    //    def AvPostType = ObjectType("AvPost",
+    //      fields[BaseQuery, AvPostProto](
 
-    val header = "def "+head.gqlName+ " = ObjectType(\n"+"\""+head.domainName+"\",\n"+"\"\",\n"+"fields[BaseQuery, "+head.protoName+"]("
+    val header = "def " + head.gqlName + " = ObjectType(\n" + "\"" + head.domainName + "\",\n" + "\"\",\n" + "fields[BaseQuery, " + head.protoName + "]("
     val fin = Seq(header) ++ typee.init :+ typee.last.dropRight(1) :+ "))"
-    fin
+    fin.mkString("\n")
 
   }
+
+  println(convert())
 
   case class Field(fieldName: String, fieldType: String, fieldSerial: String) {
     override def toString() = {
@@ -40,15 +42,15 @@ object GQLApp extends App {
     }
   }
 
-  try {
-    Util.writeFile("source.out", convert().mkString("\n"))
-  } catch {
-    case e: FileNotFoundException => {
-      println("Cannot find target input file!")
-    }
-    case e: Exception => {
-      println("Something went wrong!")
-    }
-  }
+  //  try {
+  //    Util.writeFile("source.out", convert().mkString("\n"))
+  //  } catch {
+  //    case e: FileNotFoundException => {
+  //      println("Cannot find target input file!")
+  //    }
+  //    case e: Exception => {
+  //      println("Something went wrong!")
+  //    }
+  //  }
 
 }

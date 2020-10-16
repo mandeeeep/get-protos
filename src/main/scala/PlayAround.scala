@@ -23,18 +23,7 @@ object PlayAround {
     println(infectedJson.as[JsObject] - "invited_at" ++ infectedJson.transform(transformCopy).get.as[JsObject])
   }
 
-  val name: Seq[String] = Seq("conversationCreated",
-    "conversationDeleted",
-    "groupConversationChanged",
-    "groupConversationAccessGranted",
-    "groupConversationAccessRemoved",
-    "groupConversationParticipantsChanged",
-    "groupConversationParticipantsAdded",
-    "groupConversationParticipantsRemoved",
-    "groupConversationParticipantLeft",
-    "conversationStateChanged"
-
-  )
+  val name: Seq[String] = Seq("")
   def tosn(name: String) = "[A-Z\\d]".r.replaceAllIn(name, { m =>
     "_" + m.group(0).toLowerCase()
   }).toUpperCase()
